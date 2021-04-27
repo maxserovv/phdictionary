@@ -1,4 +1,4 @@
-from PhDictionary import requestor
+from phdictionary.requestor import *
 from docx import Document
 from random import randint
 
@@ -8,7 +8,7 @@ def txt_french_english(f, number_of_examples=0):
         document = Document()
         document.add_heading('French-English', 0)
         for word in f:
-            re = requestor.get_french_english(word, 0)[:2]
+            re = get_french_english(word, 0)[:2]
             word = word[:len(word) - 1]
             if re[0] == 'feminine noun':
                 word += ' (f)'
@@ -20,7 +20,7 @@ def txt_french_english(f, number_of_examples=0):
         document = Document()
         document.add_heading('French-English', 0)
         for word in f:
-            re = requestor.get_french_english(word, number_of_examples)
+            re = get_french_english(word, number_of_examples)
             word = word[:len(word) - 1]
             if re[0] == 'feminine noun':
                 word += ' (f)'
@@ -39,7 +39,7 @@ def syn_txt(f, number_of_syn):
     document.add_heading('Synonyms', 0)
     for word in f:
         word = word[:len(word) - 1]
-        re = requestor.get_synonym(str(word), number_of_syn)
+        re = get_synonym(str(word), number_of_syn)
         p = document.add_paragraph(style='List Bullet')
         to_add = ''
         for i in range(len(re)):
@@ -56,7 +56,7 @@ def definition(f, number_of_examples):
         document = Document()
         document.add_heading('Definition', 0)
         for word in f:
-            re = requestor.get_definition(word, 0)[:2]
+            re = get_definition(word, 0)[:2]
             if '\n' not in word:
                 p = document.add_paragraph(style='List Bullet')
                 p.add_run(word[0].upper() + word[1:]).bold = True
@@ -71,7 +71,7 @@ def definition(f, number_of_examples):
         document = Document()
         document.add_heading('Definition', 0)
         for word in f:
-            re = requestor.get_definition(word, number_of_examples)
+            re = get_definition(word, number_of_examples)
             if '\n' not in word:
                 p = document.add_paragraph()
                 p.add_run(word[0].upper() + word[1:]).bold = True

@@ -69,7 +69,11 @@ def purify_syn_eng(text, number_of_synonyms):
     if len(syn) < number_of_synonyms:
         additional = syn + soap.find_all(class_='css-1gyuw4i eh475bn0')
         for i in range(number_of_synonyms):
-            syn_res.append(purify_syn_english(str(additional[i])))
+            try:
+                syn_res.append(purify_syn_english(str(additional[i])))
+            except:
+                syn_res.append('')
+                print('Currently it is not possible to find so many synonyms')
         return syn_res
     else:
         for i in range(number_of_synonyms):
