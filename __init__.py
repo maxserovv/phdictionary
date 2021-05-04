@@ -1,5 +1,5 @@
-from phdictionary.phdictionary import get_definition,\
-    get_syn,\
+from phdictionary.dictionary import get_definition,\
+    get_synonym,\
     get_french_english,\
     get_english_french, \
     get_syn_from_file, \
