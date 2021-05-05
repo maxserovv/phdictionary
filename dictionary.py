@@ -39,7 +39,7 @@ def get_french_english_from_file(file, number_of_examples=0):
     f = FileManager()
     return f.txt_french_english(file, number_of_examples)
 
-def get_syn_from_file(file, number_of_syn=1):
+def get_synonyms_from_file(file, number_of_syn=1):
     f = FileManager()
     return f.syn_txt(file, number_of_syn)
 
