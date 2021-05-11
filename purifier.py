@@ -3,20 +3,23 @@ from bs4 import BeautifulSoup
 
 class Purifier:
     def purify(self, a):
-        purified = ''
-        add = False
-        for i in range(len(a)):
-            if a[i] == '>':
-                add = True
-            elif a[i] == '<':
-                add = False
-            elif a[i] == '\n':
-                pass
-            elif add:
-                purified += a[i]
-        if purified[0] == ' ':
-            purified = purified[1:]
-        return purified
+        try:
+            purified = ''
+            add = False
+            for i in range(len(a)):
+                if a[i] == '>':
+                    add = True
+                elif a[i] == '<':
+                    add = False
+                elif a[i] == '\n':
+                    pass
+                elif add:
+                    purified += a[i]
+            if purified[0] == ' ':
+                purified = purified[1:]
+            return purified
+        except:
+            return ''
 
     def purify_syn_english(self, a):
         try:
