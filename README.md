@@ -4,16 +4,16 @@ This tool can help you to provide better understanding of foreign word using exa
 
 You can collect all the words that you want to get acquainted with and just put a txt file into this tool to generate Word documents like this:
 
-![alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/def.png?raw=true)
+![Alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/def.png?raw=true)
 
 With examples:
 
-![alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/def-e.png?raw=true)
+![Alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/def-e.png?raw=true)
 
 And translate from French to English:
 
 
-![alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/fr-eng.png?raw=true)
+![Alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/fr-eng.png?raw=true)
 # Installation
 
 ```bash
