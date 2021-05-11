@@ -1,1 +1,0 @@
-USAGE OF PhDicionary
