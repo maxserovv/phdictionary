@@ -8,12 +8,12 @@ You can collect all the words that you want to get acquainted with and just put 
 
 With examples:
 
-![Alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/def-e.png?raw=true)
+![Alt text](/examples/def-e.png?raw=true)
 
 And translate from French to English:
 
 
-![Alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/fr-eng.png?raw=true)
+![Alt text](/fr-eng.png?raw=true)
 # Installation
 
 ```bash
