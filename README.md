@@ -13,7 +13,7 @@ With examples:
 And translate from French to English:
 
 
-![Alt text](/fr-eng.png?raw=true)
+![Alt text](/examples/fr-eng.png?raw=true)
 # Installation
 
 ```bash
