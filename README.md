@@ -4,7 +4,7 @@ This tool can help you to provide better understanding of foreign word using exa
 
 You can collect all the words that you want to get acquainted with and just put a txt file into this tool to generate Word documents like this:
 
-![Alt text](https://github.com/RediIVIideR/phdictionary/tree/main/examples/def.png?raw=true)
+![Alt text](/examples/def.png?raw=true)
 
 With examples:
 
