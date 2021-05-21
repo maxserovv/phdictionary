@@ -82,3 +82,33 @@ class Purifier:
             for i in range(number_of_synonyms):
                 syn_res.append(p.purify_syn_english(str(syn[i])))
             return syn_res
+
+    def purify_glosbe(self, text, number_of_examples):
+        p = Purifier()
+        soap = BeautifulSoup(text, 'html.parser')
+        s = soap.find_all(class_='translation')
+        translation = []
+        examples = []
+
+        for el in s:
+            translation.append(p.purify(str(el)))
+
+        s = soap.find_all(class_='translation__example')
+
+        for j in range(number_of_examples):
+            res = p.purify(str(s[j]))
+            r = ''
+            split = True
+            for i in range(len(res)):
+                if ord(res[i]) > 1000 and split:
+                    split = False
+                    r += ' || '
+                    r += res[i]
+                else:
+                    r += res[i]
+            examples.append(r)
+
+        return translation, examples
+        # s = soap.find_all(class_='phrase__summary__field')
+        # for el in s:
+        #     purify_french_russian(str(el))

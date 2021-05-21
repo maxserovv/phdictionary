@@ -2,6 +2,7 @@ from phdictionary.requestor import Requester
 from docx import Document
 from random import randint
 
+
 class FileManager:
     def txt_french_english(self, f, number_of_examples=0):
         r = Requester()
@@ -10,7 +11,7 @@ class FileManager:
             document = Document()
             document.add_heading('French-English', 0)
             for word in f:
-                if word!='':
+                if word != '':
                     re = r.get_french_english_q(word, 0)[:2]
                     if re[0] == 'feminine noun':
                         word += ' (f)'
@@ -22,7 +23,7 @@ class FileManager:
             document = Document()
             document.add_heading('French-English', 0)
             for word in f:
-                if word!='':
+                if word != '':
                     re = r.get_french_english_q(word, number_of_examples)
                     if re[0] == 'feminine noun':
                         word += ' (f)'
@@ -41,7 +42,7 @@ class FileManager:
         document = Document()
         document.add_heading('Synonyms', 0)
         for word in f:
-            if word!='':
+            if word != '':
                 re = r.get_synonym(str(word), number_of_syn)
                 p = document.add_paragraph(style='List Bullet')
                 to_add = ''
@@ -62,7 +63,7 @@ class FileManager:
             document = Document()
             document.add_heading('Definition', 0)
             for word in f:
-                if word!='':
+                if word != '':
                     re = r.get_definition_1(word, 0)[:2]
                     if '\n' not in word:
                         p = document.add_paragraph(style='List Bullet')
@@ -78,7 +79,7 @@ class FileManager:
             document = Document()
             document.add_heading('Definition', 0)
             for word in f:
-                if word!='':
+                if word != '':
                     re = r.get_definition_1(word, number_of_examples)
                     if '\n' not in word:
                         p = document.add_paragraph()
@@ -92,3 +93,35 @@ class FileManager:
                     for ex in re[2]:
                         document.add_paragraph(ex, style='List Bullet')
             document.save(f'definition_examples{randint(0, 1000)}.docx')
+
+    def txt_english_french(self, f, number_of_examples=0):
+        r = Requester()
+        f = f.read().splitlines()
+        if number_of_examples == 0:
+            document = Document()
+            document.add_heading('English-French', 0)
+            for word in f:
+                if word != '':
+                    re = r.get_eng_fr(word, 0)[:2]
+                    if re[0] == 'feminine noun':
+                        word += ' (f)'
+                    elif re[0] == 'masculine noun':
+                        word += ' (m) '
+                    document.add_paragraph(word + '  -  ' + re[1], style='List Bullet')
+            document.save(f'english-french{randint(0, 1000)}.docx')
+        else:
+            document = Document()
+            document.add_heading('English-French', 0)
+            for word in f:
+                if word != '':
+                    re = r.get_eng_fr(word, number_of_examples)
+                    if re[0] == 'feminine noun':
+                        word += ' (f)'
+                    elif re[0] == 'masculine noun':
+                        word += ' (m) '
+                    p = document.add_paragraph()
+                    p.add_run(word + '  -  ' + re[1]).bold = True
+                    for ex in re[2]:
+                        document.add_paragraph(ex, style='List Bullet')
+
+            document.save(f'english-french-examples{randint(0, 1000)}.docx')

@@ -28,3 +28,26 @@ class Requester:
                          headers={'User-agent': 'Mozilla/5.0'})
         p = Purifier()
         return p.purify_fr_eng(r.text, number_of_examples)
+
+    def get_glosbe(self, query='bonsoir', number_of_examples=0, language='fr-ru'):
+        if language == 'fr-ru':
+
+            r = requests.get(f'https://glosbe.com/fr/ru/{query}',
+                             headers={'User-agent': 'Mozilla/5.0'})
+            p = Purifier()
+            return p.purify_glosbe(r.text, number_of_examples)
+        elif language == 'ru-fr':
+            r = requests.get(f'https://glosbe.com/ru/fr/{query}',
+                             headers={'User-agent': 'Mozilla/5.0'})
+            p = Purifier()
+            return p.purify_glosbe(r.text, number_of_examples)
+        elif language == 'en-ru':
+            r = requests.get(f'https://glosbe.com/en/ru/{query}',
+                             headers={'User-agent': 'Mozilla/5.0'})
+            p = Purifier()
+            return p.purify_glosbe(r.text, number_of_examples)
+        elif language == 'ru-en':
+            r = requests.get(f'https://glosbe.com/ru/en{query}',
+                             headers={'User-agent': 'Mozilla/5.0'})
+            p = Purifier()
+            return p.purify_glosbe(r.text, number_of_examples)
